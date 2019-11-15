@@ -1,0 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/freebsd-12"
+  config.vm.provision "file", source: "jail.conf", destination: "/tmp/jail.conf"
+  config.vm.provision "file", source: ".zshrc", destination: "/tmp/.zshrc"
+  config.vm.provision "file", source: "../thinjail.sh", destination: "/tmp/thinjail.sh"
+  config.vm.provision "file", source: "../clonejail.sh", destination: "/tmp/clonejail.sh"
+  config.vm.provision "shell", path: "provision.sh"
+  config.vm.provision "shell", path: "shell.sh"
+end
