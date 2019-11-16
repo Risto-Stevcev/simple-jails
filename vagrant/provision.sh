@@ -18,3 +18,16 @@ thinjail create bar
 # Create the jails
 jail -c foo
 jail -c bar
+
+
+
+# Initializes the base template for future clone jails
+clonejail init
+
+# These create the clone jail directories
+clonejail create baz
+clonejail create qux
+
+# Create the jails
+jail -c baz
+jail -c qux
